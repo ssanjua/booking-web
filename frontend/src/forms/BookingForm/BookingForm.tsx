@@ -12,7 +12,12 @@ type BookingFormData = {
 }
 
 const BookingForm = ({ currentUser }: Props) => {
-  const { handleSubmit, register } = useForm<BookingFormData>();
+  const { handleSubmit, register } = useForm<BookingFormData>({
+    defaultValues: {
+        firstName: currentUser.firstName,
+        lastName: currentUser.lastName,
+        email: currentUser.email,
+    }});
 
   return (
     <form className="grid grid-cols-1 gap-5 ronded-lg border border-slate-300 px-5">
