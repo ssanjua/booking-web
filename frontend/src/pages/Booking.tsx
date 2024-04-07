@@ -5,8 +5,12 @@ import { useSearchContext } from "../contexts/SearchContext";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import BookingDetailsSummary from "../components/BookingDetailsSummary";
+import { Elements } from "@stripe/react-stripe-js";
+import { useAppContext } from "../contexts/AppContext";
 
 const Booking = () => {
+
+    const { stripePromise } = useAppContext()
 
     const search = useSearchContext();
     const { hotelId } = useParams()
@@ -22,6 +26,16 @@ const Booking = () => {
             setNumberOfNights(Math.ceil(nights))
         }
     }, [search.checkIn, search.checkOut]);
+
+    const { data: paymentIntentData } = useQuery("createPaymentIntent", () => 
+        apiClient.createPaymentIntent(
+            hotelId as string, 
+            numberOfNights.toString()
+        ),
+    { 
+        enabled: !!hotelId && numberOfNights > 0,
+    }
+)
 
     const { data: hotel } = useQuery("fetchHotelById", () => 
         apiClient.fetchMyHotelById(hotelId as string), {
@@ -48,8 +62,19 @@ const Booking = () => {
                 numberOfNights={numberOfNights}
                 hotel={hotel}    
             />
-            {currentUser && 
-                <BookingForm currentUser={currentUser} />}
+            {currentUser && paymentIntentData && (
+                <Elements 
+                    stripe={stripePromise}
+                    options={{
+                        clientSecret: paymentIntentData.clientSecret,
+                    }}    
+                >
+                <BookingForm 
+                    currentUser={currentUser} 
+                    paymentIntent= {paymentIntentData}
+                />
+                </ Elements>
+            )}
         </div>
     )
 }
