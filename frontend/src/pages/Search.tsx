@@ -70,9 +70,9 @@ const Search = () => {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5">
-      <div className="rounded-lg border border-slate-300 p-5 h-fit top-10">
+      <div className="rounded-lg shadow-xl p-5 h-fit top-10">
         <div className="space-y-5">
-          <h3 className="text-lg font-semibold border-b border-slate-300 pb-5">
+          <h3 className="font-semibold border-b border-slate-300 pb-5">
             Filter by:
           </h3>
           <StarRatingFilter
@@ -95,14 +95,14 @@ const Search = () => {
       </div>
       <div className="flex flex-col gap-5">
         <div className="flex justify-between items-center">
-          <span className="text-xl font-bold">
+          <span className="text font-bold">
             {hotelData?.pagination.total} Hotels found
             {search.destination ? ` in ${search.destination}` : ""}
           </span>
           <select
             value={sortOption}
             onChange={(event) => setSortOption(event.target.value)}
-            className="p-2 border rounded-md"
+            className="p-2 text-sm border rounded-md rounded-lg shadow-xl"
           >
             <option value="">Sort By</option>
             <option value="starRating">Star Rating</option>
