@@ -10,6 +10,10 @@ declare global {
 }
 
 const verifyToken = (req: Request, res: Response, next: NextFunction) => {
+  if (req.path === "/" && !req.cookies["auth_token"]) {
+    return next(); // Allow the request to proceed without authentication
+  }
+  
   const token = req.cookies["auth_token"];
   if (!token) {
     return res.status(401).json({ message: "unauthorized" });
