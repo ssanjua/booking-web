@@ -13,17 +13,17 @@ const MyBookings = () => {
 
   return (
     <div className="space-y-5">
-      <h1 className="text-3xl font-bold">My Bookings</h1>
+      <h1 className="text-2xl font-bold">My Bookings</h1>
       {hotels.map((hotel) => (
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] border border-slate-300 rounded-lg p-8 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] border border-gray-200 rounded-xl shadow-md p-8 gap-5">
           <div className="lg:w-full lg:h-[250px]">
             <img
               src={hotel.imageUrls[0]}
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center rounded"
             />
           </div>
           <div className="flex flex-col gap-4 overflow-y-auto max-h-[300px]">
-            <div className="text-2xl font-bold">
+            <div className="text-xl font-bold">
               {hotel.name}
               <div className="text-xs font-normal">
                 {hotel.city}, {hotel.country}

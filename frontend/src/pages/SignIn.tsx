@@ -38,7 +38,7 @@ const SignIn = () => {
                 <h2 className="text-2xl font-bold">Sign in</h2>
                 <label className="text-gray-700 text-sm font-bold flex-1">
                     Email
-                    <input type="email" className="border rounded-lg w-full py-1 px-2 font-normal"
+                    <input type="email" className="border rounded-lg w-full py-2 px-2 font-normal"
                         {...register("email", { required: "This field is required" })} />
                     {errors.email && (
                         <span className="text-red-500" >{errors.email.message}</span>
@@ -48,7 +48,7 @@ const SignIn = () => {
                     Password
                     <input
                         type="password"
-                        className="border rounded w-full py-1 px-2 font-normal"
+                        className="border rounded w-full py-2 px-2 font-normal"
                         {...register("password", {
                             required: "This field is required",
                             minLength: {

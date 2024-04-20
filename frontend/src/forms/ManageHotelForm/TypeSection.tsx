@@ -13,8 +13,8 @@ const TypeSection = () => {
                 {hotelTypes.map((type) => (
                     <label className={
                         typeWatch === type 
-                        ? "cursor-pointer bg-blue-300 text-sm rounded-full px-4 py-3 font-semi-bold" 
-                        : "cursor-pointer bg-gray-300 text-sm rounded-full px-4 py-3 font-semi-bold"
+                        ? "cursor-pointer bg-blue-300 text-sm rounded-full px-4 py-3 font-semi-bold items-center" 
+                        : "cursor-pointer bg-gray-300 text-sm rounded-full px-4 py-3 font-semi-bold items-center"
                     }>
                         <input type="radio" value={type} {...register("type", {
                             required: "This field is required",

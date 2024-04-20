@@ -11,7 +11,7 @@ const GuestsSection = () => {
     return (
         <div>
             <h2 className="text-2xl font-bold mb-3">Guests</h2>
-            <div className="grid grid-cols-2 p-6 gap-5 bg-gray-200">
+            <div className="grid grid-cols-2 p-6 gap-5 rounded-xl border border-gray-200 bg-gray-100">
                 <label className="text-gray-700 text-sm font-semibold">
                     Adults
                     <input className="border rounded w-full py-2 px-3 font-normal" 
