@@ -2,6 +2,8 @@
 
 Bookeando is a full-stack web application built with the MERN stack that allows users to book hotels across Europe. The application provides functionality for users to log in as hotel administrators to add and manage hotels, or as guests to make reservations.
 
+![Screenshot](img/bookeando-feed.webp)
+
 ## Features
 
 - **Authentication**: Log in with your Google account or use the test credentials:
@@ -9,6 +11,10 @@ Bookeando is a full-stack web application built with the MERN stack that allows 
   - Password: `password`
 - **Reservations**: Book your stay using an advanced search system that includes filters for facilities, dates, ratings, and amenities.
 - **Hotel Management**: As an administrator, you can add and edit hotel details.
+
+## Preview
+
+![Demo](/preview-min.gif)
 
 ## Payments
 
@@ -33,15 +39,16 @@ More details can be found in the [Stripe Testing Documentation](https://docs.str
 
 You can access the live application here: [Bookeando](https://bookeando.onrender.com/)
 
-## Preview
 
-![Demo](/preview-min.gif)
+![Phone](img/bookeando-phone.webp)
 
 ## Local Use
-
 
 ```bash
 git clone https://github.com/ssanjua/booking-web
 cd booking-web
 npm install
 npm run dev
+```
+
+made with ❤️ by [ssanjua](https://github.com/ssanjua)
